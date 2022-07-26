@@ -1,0 +1,285 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    --tamaño-casillas: 60px;
+    --tamaño-imagen: 50px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: #f7f7f7;
+}
+
+header {
+    height: 5vh;
+    min-height: 80px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    padding: 10px;
+    width: 100%;
+}
+
+
+header span {
+    font-weight: 600;
+}
+
+.juego {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70vw;
+    min-height: 70vh;
+}
+
+.tableroBox {
+    position: absolute;
+    left: 50px;
+    /* width: calc(8 * var(--tamaño-casillas));
+    height: calc(8 * var(--tamaño-casillas)); */
+    border: 1px solid rgb(49, 49, 49);
+    margin: 15px;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(8, var(--tamaño-casillas));
+    grid-template-rows: repeat(8, var(--tamaño-casillas));
+}
+
+
+.tablero p {
+    position: absolute;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    /* font-size: 20px; */
+    z-index: 10;
+}
+
+.tablero div {
+    position: relative;
+}
+
+.casillaB {
+    background-color: #464343;
+
+}
+
+.casillaN {
+    background-color: #f5fff5;
+}
+
+.tablero div img {
+    position: relative;
+    display: block;
+    width: var(--tamaño-imagen);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tablero .reinaBlanca {
+    width: 50px;
+    top: 22px;
+}
+
+.formulario {
+    width: 400px;
+    position: absolute;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    padding: 10px;
+}
+
+.formulario label {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.formulario input,
+.formulario button {
+    width: 100px;
+    height: 30px;
+    margin: 10px 0 10px 0;
+}
+
+.formulario#formulario input#finalOrigen,
+input#finalDestino {
+    margin-bottom: 20px;
+}
+
+#formulario {
+    width: 300px;
+    padding: 20px 20px;
+}
+
+.perdedor {
+    height: 10%;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+.errores {
+    position: absolute;
+    top: 70px;
+    right: 40px;
+    height: 15vh;
+    width: 250px;
+    padding: 10px;
+}
+
+.ficha {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    clip-path: circle(50px at center);
+    border-radius: 50%;
+}
+
+.fichaBlanca {
+    background: rgb(47, 47, 133);
+}
+
+.fichaNegra {
+    background: #f44336;
+}
+
+.dama{
+    position: absolute;
+    top: -5px;
+    left: -3px;
+}
+
+.damaNegra,
+.damaBlanca {
+    width: calc(var(--tamaño-casillas) + 6px);
+    height: calc(var(--tamaño-casillas) + 6px);
+}
+
+.poligonoBlanco {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(30% 75%, 68.67% 75.00%, 88.67% 37.33%, 62.34% 50%, 48.67% 13.33%, 35% 50%, 8.66% 38%);
+    background: white;
+}
+
+.poligonoNegro {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(30% 75%, 70% 75%, 88.67% 37.33%, 62.34% 50%, 48.67% 13.33%, 35% 50%, 8.66% 38.00%);
+    background: black;
+}
+
+.tablero .corona {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.coronaBlanca {
+
+    background: white;
+}
+
+.coronaNegra {
+
+    background: black;
+}
+
+.corona:nth-child(2) {
+    left: 5%;
+    top: 33%;
+}
+
+.corona:nth-child(3) {
+    left: 41%;
+    top: 10%;
+}
+
+.corona:nth-child(4) {
+    right: 4%;
+    top: 33%;
+}
+
+.pNegro {
+    color: rgb(255, 255, 255);
+}
+
+.pBlanco {
+    color: white;
+}
+
+
+@media screen and (max-width: 1400px) {
+    * {
+        --tamaño-casillas: 50px;
+        --tamaño-imagen: 40px;
+    }
+
+    #formulario {
+        width: 250px;
+    }
+
+    .formulario {
+        left: 50%;
+        width: 250px;
+    }
+
+    .formulario label {
+        font-size: 17px;
+    }
+
+    .formulario input {
+        width: 80px;
+        height: 25px;
+    }
+
+    .tablero p{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .errores {
+        right: 0px;
+        width: 225px;
+    }
+}
+
+@media screen and (max-height: 1000px) and (min-width: 1400px) {
+    .juego {
+        
+    }
+}
